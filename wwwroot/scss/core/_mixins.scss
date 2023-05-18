@@ -1,0 +1,48 @@
+@mixin md {
+    @media (min-width: 768px) {
+        @content
+    }
+}
+@mixin lg {
+    @media (min-width: 992px) {
+        @content
+    }
+}
+@mixin xl {
+    @media (min-width: 1200px) {
+        @content
+    }
+}
+@mixin xxl {
+    @media (min-width: 1400px) {
+        @content
+    }
+}
+@mixin xxxl {
+    @media (min-width: 1920px) {
+        @content
+    }
+}
+
+@mixin rowBtn {
+
+    .rowButton {
+        width: 100%;
+        border: 1px solid #E1E1E1;
+        background-color: transparent;
+        font-family: $font-roboto;
+        font-size: 1rem;
+        color: #636363;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        transition: 200ms ease-in-out;
+
+        &:hover {
+            background-color: #FA3150;
+            color: white;
+            border: 1px solid #FA3150;
+
+        }
+    }
+
+}

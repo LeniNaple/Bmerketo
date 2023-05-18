@@ -1,0 +1,43 @@
+﻿@*Contact Form Partial*@
+
+@model ContactFormViewModel
+
+<section class="contact-form">
+    <div class="container">
+        <div class="title">Write something</div>
+
+        <form id="contact-form" method="post" novalidate>
+            <div class="name form-group">
+                <label asp-for="Name">Your Name*</label>
+                <input asp-for="Name" id="contact-name" type="text" required>
+                <span asp-validation-for="Name" class="contact-error"></span>
+            </div>
+            <div class="email form-group">
+                <label asp-for="Email">Your Email*</label>
+                <input asp-for="Email" id="contact-email" type="text" >
+                <span asp-validation-for="Email" class="contact-error"></span>
+            </div>
+            <div class="phoneNumber form-group">
+                <label asp-for="PhoneNumber">Phone Number (optional)</label>
+                <input asp-for="PhoneNumber" id="phone" type="text">
+            </div>
+            <div class="companyName form-group">
+                <label asp-for="Company">Company (optional)</label>
+                <input asp-for="Company" id="company" type="text">
+            </div>
+            <div class="message form-group">
+                <label asp-for="Comment">Message*</label>
+                <textarea asp-for="Comment" id="contact-message" ></textarea>
+                <span asp-validation-for="Comment" class="contact-error"></span>
+            </div>
+            <div class="terms form-checkbox-group">
+                <label asp-for="RememberMyEmail" class="custom-checkbox">
+                    Save my name, email in the this browser for the next time I comment.
+                    <input asp-for="RememberMyEmail" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <button id="contactFormButton" class="btn-theme">Submit</button>
+        </form>
+    </div>
+</section>

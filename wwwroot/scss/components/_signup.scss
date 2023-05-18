@@ -1,0 +1,76 @@
+
+.login-form {
+
+    .container {
+        form {
+
+            .form-grid {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1;
+                gap: 35px;
+                grid-template-areas: 'firstName' 'lastName' 'streetName' 'postalCode' 'city' 'phoneNumber' 'companyName' 'email   ' 'password   ' 'confirmPassword   ' 'profileImage   ';
+
+                .firstName {
+                    grid-area: firstName;
+                }
+
+                .lastName {
+                    grid-area: lastName;
+                }
+
+                .streetName {
+                    grid-area: streetName;
+                }
+
+                .postalCode {
+                    grid-area: postalCode;
+                }
+
+                .city {
+                    grid-area: city;
+                }
+
+                .phoneNumber {
+                    grid-area: phoneNumber;
+                }
+
+                .companyName {
+                    grid-area: companyName;
+                }
+
+                .email {
+                    grid-area: email;
+                }
+
+                .password {
+                    grid-area: password;
+                }
+
+                .confirmPassword {
+                    grid-area: confirmPassword;
+                }
+
+                .profileImage {
+                    grid-area: profileImage;
+                }
+
+                label {
+                    color: #636363;
+                }
+            }
+        }
+
+        @include lg {
+
+            form {
+
+                .form-grid {
+                    grid-template-columns: 4;
+                    gap: 35px;
+                    grid-template-areas: 'firstName firstName lastName lastName' 'streetName streetName streetName streetName' 'postalCode postalCode city city' 'phoneNumber phoneNumber companyName companyName' 'email email email email' 'password password password password' 'confirmPassword confirmPassword confirmPassword confirmPassword' 'profileImage profileImage profileImage profileImage';
+                }
+            }
+        }
+    }
+}

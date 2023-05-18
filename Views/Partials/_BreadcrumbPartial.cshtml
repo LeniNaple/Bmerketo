@@ -1,0 +1,16 @@
+﻿@*Breadcrumb Partial*@
+
+@model BreadCrumbViewModel
+
+
+<section class="_breadcrumb">
+    <div class="container">
+        <div class="content">
+            <h1>@Model?.Title</h1>
+            <ul>
+                <li>@Model?.SecondTitle</li>
+                <li>@Model?.ThirdTitle</li>
+            </ul>
+        </div>
+    </div>
+</section>

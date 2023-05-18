@@ -1,0 +1,34 @@
+
+.prodDescriptionUpp {
+
+    h1 {
+    font-family: $font-poppins;
+    font-size: 24px;
+    font-weight: $font-weight-semibold;
+    color: #363636;
+    padding-bottom: 20px;
+    }
+}
+
+.prodDescriptionDown {
+    display: flex;
+
+    .textSection {
+
+        h2 {
+            color: #636363;
+            font-family: $font-roboto;
+            font-size: 1rem;
+            font-weight: $font-weight-regular;
+            padding-bottom: 30px;
+        }
+
+        .morepadding {
+            padding-top: 30px;
+        }
+    }
+
+    .imgSection {
+        padding-left: 40px;
+    }
+}

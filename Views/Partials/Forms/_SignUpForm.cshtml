@@ -1,0 +1,96 @@
+﻿@*Signup Form Partial*@
+
+@model UserRegistrationViewModel
+
+
+<section class="login-form">
+    <div class="container">
+        <div class="title">Please Register Your new Account</div>
+        <div class="underline"></div>
+        <form id="signup-form" method="post" novalidate>
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="form-grid">
+                <div class="firstName form-group">
+                    <div class="firstName-text">
+                        <label asp-for="FirstName">First Name*</label>
+                    </div>
+                    <input asp-for="FirstName" id="signup-firstName" type="text" >
+                    <span asp-validation-for="FirstName" class="signup-error"></span>
+                </div>
+                <div class="lastName form-group">
+                    <div class="lastName-text">
+                        <label asp-for="LastName">Last Name*</label>
+                    </div>
+                    <input asp-for="LastName" id="signup-lastName" type="text" >
+                    <span asp-validation-for="LastName" class="signup-error"></span>
+                </div>
+                <div class="streetName form-group">
+                    <div class="streetName-text">
+                        <label asp-for="StreetName">Street Name</label>
+                    </div>
+                    <input asp-for="StreetName" id="streetName" type="text">
+                </div>
+                <div class="postalCode form-group">
+                    <div class="postalCode-text">
+                        <label asp-for="PostalCode">Postal Code</label>
+                    </div>
+                    <input asp-for="PostalCode" id="postalCode" type="text">
+                </div>
+                <div class="city form-group">
+                    <div class="city-text">
+                        <label asp-for="City">City Name</label>
+                    </div>
+                    <input asp-for="City" id="city" type="text">
+                </div>
+                <div class="phoneNumber form-group">
+                    <div class="phoneNumber-text">
+                        <label asp-for="PhoneNumber">Phone Number</label>
+                    </div>
+                    <input asp-for="PhoneNumber" id="phoneNumber" type="text">
+                </div>
+                <div class="companyName form-group">
+                    <div class="companyName-text">
+                        <label asp-for="CompanyName">Company Name</label>
+                    </div>
+                    <input asp-for="CompanyName" id="companyName" type="text">
+                </div>
+                <div class="email form-group">
+                    <div class="email-text">
+                        <label asp-for="Email">Email*</label>
+                    </div>
+                    <input asp-for="Email" id="signup-email" type="text" >
+                    <span asp-validation-for="Email" class="signup-error"></span>
+                </div>
+                <div class="password form-group">
+                    <div class="password-text">
+                        <label asp-for="Password">Password*</label>
+                    </div>
+                    <input asp-for="Password" id="signup-password" type="password" >
+                    <span asp-validation-for="Password" class="signup-error"></span>
+                </div>
+                <div class="confirmPassword form-group">
+                    <div class="password-text">
+                        <label asp-for="ConfirmPassword">Confirm Password*</label>
+                    </div>
+                    <input asp-for="ConfirmPassword" id="signup-confirmPassword" type="password" >
+                    <span asp-validation-for="ConfirmPassword" class="signup-error"></span>
+                </div>
+                <div class="profileImage form-group">
+                    <div class="profileImage-text">
+                        <label asp-for="ProfileImageUrl">Paste a URL to a profileimage here.</label>
+                    </div>
+                    <input asp-for="ProfileImageUrl" id="profileImage" type="text">
+                </div>
+
+            </div>
+            <div class="terms form-checkbox-group">
+                <label asp-for="TermsAndAgreement" class="custom-checkbox">
+                    I have read and accepts the terms and agreements
+                    <input asp-for="TermsAndAgreement" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <button class="btn-theme">Submit</button>
+        </form>
+    </div>
+</section>

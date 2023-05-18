@@ -1,0 +1,25 @@
+﻿@*Contact Index*@
+
+@{
+    ViewData["Title"] = "Contact us";
+
+
+    var breadcrumb = new BreadCrumbViewModel()
+            {
+                Title = "Contact",
+                SecondTitle = "Home. ",
+                ThirdTitle = "Contact"
+            };
+}
+
+
+
+<partial name="/Views/Partials/_HeaderPartial.cshtml" />
+
+<partial name="/Views/Partials/_BreadcrumbPartial.cshtml" model="@breadcrumb" />
+
+<partial name="/Views/Partials/Forms/_ContactForm.cshtml" />
+
+<partial name="/Views/Partials/_MapPartial.cshtml" />
+
+<partial name="/Views/Partials/_FooterPartial.cshtml" />

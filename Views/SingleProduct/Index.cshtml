@@ -1,0 +1,34 @@
+﻿@*Single Product Index*@
+
+
+@{
+
+    ViewData["Title"] = "Product";
+
+
+    var breadcrumb = new BreadCrumbViewModel()
+            {
+                Title = "SHOP",
+                SecondTitle = "HOME.",
+                ThirdTitle = "PRODUCT DETAILS"
+
+            };
+}
+
+
+<partial name="/Views/Partials/_HeaderPartial.cshtml" />
+
+
+<partial name="/Views/Partials/_BreadcrumbPartial.cshtml" model="@breadcrumb" />
+
+
+<partial name="/Views/Partials/ProductPartials/_ProductDetailsPartial.cshtml" />
+
+
+<partial name="/Views/Partials/_RelatedProductsPartial.cshtml" />
+
+
+<partial name="/Views/Partials/_SmallProductsPartial.cshtml" />
+
+
+<partial name="/Views/Partials/_FooterPartial.cshtml" />

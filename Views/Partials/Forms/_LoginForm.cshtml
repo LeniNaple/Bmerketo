@@ -1,0 +1,36 @@
+﻿@*Login Form Partial*@
+
+@model UserLoginViewModel
+
+<section class="login-form">
+    <div class="container">
+        <div class="title">Please Login to Your Account</div>
+        <div class="underline"></div>
+        <form method="post" novalidate asp-route-ReturnUrl="@Model.ReturnUrl">
+            <div class="email form-group">
+                <div class="email-text">
+                    <label asp-for="Email">Your Email*</label>
+                    <a asp-controller="SignUp" asp-action="Index">Don't have an Account yet?</a>
+                </div>
+                <input asp-for="Email" id="email" type="text" class="invalid">
+                <span asp-validation-for="Email" class="error">Your email is required</span>
+            </div>
+            <div class="password form-group">
+                <div class="password-text">
+                    <label asp-for="Password">Your Password*</label>
+                    <a href="#">Forgot Your Password ? </a>
+                </div>
+                <input asp-for="Password" id="password" type="password" class="invalid">
+                <span asp-validation-for="Password" class="error">Your password is required</span>
+            </div>
+            <div class="terms form-checkbox-group">
+                <label class="custom-checkbox">
+                    Please keep me logged in
+                    <input asp-for="RememberMe" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <button class="btn-theme">Submit</button>
+        </form>
+    </div>
+</section>
