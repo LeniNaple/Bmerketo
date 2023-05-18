@@ -1,16 +1,31 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Bmerketo.Services;
+using Bmerketo.Services.Repo;
+using Bmerketo.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Bmerketo.Controllers
+namespace Bmerketo.Controllers;
+
+
+
+public class AdminController : Controller
 {
+    private readonly UserRepository _userRepository;
 
-
-    [Authorize]
-    public class AdminController : Controller
+    public AdminController(UserRepository userRepository)
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        _userRepository = userRepository;
     }
+
+    
+    public async Task<IActionResult> Index()
+    {
+        var viewModel = new UsersViewModel
+        {
+            Users = await _userRepository.GetAllAsync()
+        };
+        return View(viewModel);
+
+
+    }
+
 }

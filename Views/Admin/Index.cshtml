@@ -1,5 +1,9 @@
 ﻿@*Admin Index View*@
 
+@model UsersViewModel
+
+
+
 @{
     ViewData["Title"] = "Admin";
 }
@@ -7,7 +11,15 @@
 <partial name="/Views/Partials/_HeaderPartial.cshtml" />
 
 <div class="pt-5">
-    A Form that you can enter products in.
+    <div class="pt-5">
 
-    A grid that loops out all users.
+        @foreach(var user in Model.Users)
+        {
+            <div class="pt-5"> 
+                @user.UserName @user.FirstName @user.LastName 
+            </div>
+        }
+
+
+    </div>
 </div>

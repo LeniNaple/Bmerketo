@@ -12,6 +12,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<IdentityContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("BmerketoUserDb")));
 builder.Services.AddScoped<AddressRepository>();
 builder.Services.AddScoped<UserAddressRepository>();
+builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<AddressService>();
 builder.Services.AddScoped<AuthenticationService>();
 
