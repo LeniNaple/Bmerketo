@@ -1,6 +1,6 @@
-﻿using Bmerketo.Services;
-using Bmerketo.Services.Repo;
+﻿using Bmerketo.Services.Repo;
 using Bmerketo.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bmerketo.Controllers;
@@ -16,7 +16,8 @@ public class AdminController : Controller
         _userRepository = userRepository;
     }
 
-    
+
+    [Authorize(Roles = "admin")]
     public async Task<IActionResult> Index()
     {
         var viewModel = new UsersViewModel
@@ -24,7 +25,6 @@ public class AdminController : Controller
             Users = await _userRepository.GetAllAsync()
         };
         return View(viewModel);
-
 
     }
 

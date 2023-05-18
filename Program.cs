@@ -15,6 +15,7 @@ builder.Services.AddScoped<UserAddressRepository>();
 builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<AddressService>();
 builder.Services.AddScoped<AuthenticationService>();
+builder.Services.AddScoped<SeedService>();
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(x =>
 {

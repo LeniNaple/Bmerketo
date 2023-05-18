@@ -28,7 +28,7 @@ namespace Bmerketo.ViewModels
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; } = null!;
 
-        public string? StreetName { get; set; }
+        public string StreetName { get; set; } = null!;
 
         public string? PostalCode { get; set; }
 
