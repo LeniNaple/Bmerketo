@@ -10,12 +10,13 @@ builder.Services.AddControllersWithViews();
 
 
 builder.Services.AddDbContext<IdentityContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("BmerketoUserDb")));
+builder.Services.AddScoped<SeedService>();
+builder.Services.AddScoped<AuthenticationService>();
+builder.Services.AddScoped<AddressService>();
 builder.Services.AddScoped<AddressRepository>();
 builder.Services.AddScoped<UserAddressRepository>();
 builder.Services.AddScoped<UserRepository>();
-builder.Services.AddScoped<AddressService>();
-builder.Services.AddScoped<AuthenticationService>();
-builder.Services.AddScoped<SeedService>();
+
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(x =>
 {
@@ -23,8 +24,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(x =>
     x.Password.RequiredLength = 8;
     x.User.RequireUniqueEmail = true;
 
-}).AddEntityFrameworkStores<IdentityContext>()
-  .AddClaimsPrincipalFactory<CustomClaimsPrincipleFactory>();
+}).AddEntityFrameworkStores<IdentityContext>();
 
 
 builder.Services.ConfigureApplicationCookie(x =>

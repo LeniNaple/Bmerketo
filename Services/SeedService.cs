@@ -15,7 +15,10 @@ public class SeedService
     {
 
         if (!await _roleManager.RoleExistsAsync("admin"))
+        {
             await _roleManager.CreateAsync(new IdentityRole("admin"));
+        }
+
 
         if (!await _roleManager.RoleExistsAsync("user"))
             await _roleManager.CreateAsync(new IdentityRole("user"));

@@ -1,4 +1,5 @@
 ﻿using Bmerketo.Contexts;
+using Bmerketo.Models.Entities;
 using Bmerketo.Models.Identity;
 using Bmerketo.ViewModels;
 using Microsoft.AspNetCore.Identity;
@@ -36,28 +37,33 @@ namespace Bmerketo.Services
             bool result;
             AppUser appUser = viewModel;
 
+
             try
             {
                 await _seedService.SeedRoles();
-                var roleName = "user";
+                string roleName = "user";
 
-                if (!await _userManager.Users.AnyAsync())
+                if (! _userManager.Users.Any())
                     roleName = "admin";
-                else
-                    roleName = "user";
+
 
                 await _userManager.CreateAsync(appUser, viewModel.Password);
                 await _userManager.AddToRoleAsync(appUser, roleName);
+
                 await _identityContext.SaveChangesAsync();
 
                 result = true;
 
-            } catch{
+            }
+            catch
+            {
                 result = false;
             }
 
             if (result == true) 
             {
+
+
                 var addressEntity = await _addressService.GetOrCreateAsync(viewModel);
                 if (addressEntity != null)
                 {
