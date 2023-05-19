@@ -6,20 +6,37 @@
 
 @{
     ViewData["Title"] = "Admin";
+    
 }
 
 <partial name="/Views/Partials/_HeaderPartial.cshtml" />
 
-<div class="pt-5">
+<div class="p-5">
     <div class="pt-5">
 
-        @foreach(var user in Model.Users)
-        {
-            <div class="pt-5"> 
-                @user.UserName @user.FirstName @user.LastName 
-            </div>
-        }
+            @foreach(var user in Model.Users)
+            {
+                <div class="pt-5">
+                    
+                    <p>Name:
+                        @user.FirstName @user.LastName
+                    </p>
 
+                    <p>Username (Email): 
+                        @user.UserName
+                    </p>
 
+                @{
+                var roles = await userManager.GetRolesAsync(user);
+
+                    @foreach (var role in roles)
+                    {
+                        <p>Role:
+                            @role
+                        </p>
+                    }
+                }
+                </div>
+            }
     </div>
 </div>
