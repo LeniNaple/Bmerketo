@@ -10,12 +10,19 @@ builder.Services.AddControllersWithViews();
 
 
 builder.Services.AddDbContext<IdentityContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("BmerketoUserDb")));
+builder.Services.AddDbContext<CommentContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("BmerketoCommentDb")));
+
 builder.Services.AddScoped<SeedService>();
 builder.Services.AddScoped<AuthenticationService>();
 builder.Services.AddScoped<AddressService>();
 builder.Services.AddScoped<AddressRepository>();
 builder.Services.AddScoped<UserAddressRepository>();
 builder.Services.AddScoped<UserRepository>();
+
+
+
+//AddClaimsPrincipalFactory<CustomClaimsPrincipleFactory>();
+builder.Services.AddScoped<CustomClaimsPrincipleFactory>();
 
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(x =>

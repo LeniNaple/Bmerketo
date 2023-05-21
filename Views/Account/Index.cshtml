@@ -1,17 +1,25 @@
-﻿@*Account View Index*@
+﻿@*Account View Index (PROFILE PAGE)*@
+
+@using Bmerketo.Services.Repo;
+
+
+@model UsersViewModel
 
 
 @{
-    ViewData["Title"] = User.FindFirst("DisplayName")?.Value;
+    ViewData["Title"] = $"{User.Identity?.Name}";
 }
 
 
 <div>
     @ViewData["Title"]
     <div>
-        @{
-            var useraa = User.Claims.FirstOrDefault(x => x.Type == "Role");
+        @foreach (var user in Model.Users)
+        {
+            <div>
+                @user.FirstName 
+                @user.LastName
+            </div>
         }
-        @useraa
     </div>
 </div>

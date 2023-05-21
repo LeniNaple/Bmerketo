@@ -20,7 +20,6 @@ public class CustomClaimsPrincipleFactory : UserClaimsPrincipalFactory<AppUser>
 
         claimsIdentity.AddClaim(new Claim("DisplayName", $"{user.FirstName} {user.LastName}"));
 
-
         return claimsIdentity;
     }
 }
