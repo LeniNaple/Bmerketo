@@ -16,13 +16,9 @@ namespace Bmerketo.Services
         }
 
 
-        // Save comment to db
-        // See if the email wants to be saved?
-        // If not set value to "Unidentified"
-        // See if there is a user already
-        // if there is, then load. If not then save
         // 
 
+        // Save comment to db
         public async Task<bool> RegisterCommentAsync(ContactFormViewModel viewModel)
         {
             try
@@ -30,11 +26,15 @@ namespace Bmerketo.Services
                 ContactComment _contactComment = viewModel;
                 CommentUser _commentUser = viewModel;
 
+
+                // See if the email wants to be saved?
                 if (_contactComment.SaveEmail == true)
                 {
+                    // Sees whether or not there is a user to the comments already
                     var _commentInfo = await _commentContext.CommentInfos.FirstOrDefaultAsync(x => x.Email == viewModel.Email && x.Alias == viewModel.Name);
                     if (_commentInfo == null)
                     {
+                        // Creates new user
                         _contactComment.CommentInfo = new CommentUser
                         {
                             Email = _commentUser.Email,
@@ -43,6 +43,8 @@ namespace Bmerketo.Services
                             Company = _commentUser.Company,
                         };
                         _commentContext.Add(_commentUser);
+
+                        // Saves changes to user
                         await _commentContext.SaveChangesAsync();
 
                         _contactComment.CommentId = _commentUser.Id;
@@ -50,11 +52,13 @@ namespace Bmerketo.Services
                     }
                     else
                     {
+                        //Sets existing user to new comment
                         _contactComment.CommentId = _commentInfo.Id;
                         _contactComment.CommentInfo = _commentInfo;
 
                     }
                 }
+                // Set value to "Unidentified", since they dont want info saved
                 else
                 {
                     _contactComment.CommentInfo = new CommentUser
@@ -68,6 +72,7 @@ namespace Bmerketo.Services
                     };
                 }
 
+                //Creates new comment
                 _commentContext.Add(new ContactComment
                 {
                     Comment = _contactComment.Comment,
@@ -76,7 +81,7 @@ namespace Bmerketo.Services
                     CommentInfo = _contactComment.CommentInfo,
                 });
 
-
+                // Saves changes to user
                 await _commentContext.SaveChangesAsync();
 
 
