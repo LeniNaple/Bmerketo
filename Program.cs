@@ -18,6 +18,7 @@ builder.Services.AddScoped<AddressService>();
 builder.Services.AddScoped<AddressRepository>();
 builder.Services.AddScoped<UserAddressRepository>();
 builder.Services.AddScoped<UserRepository>();
+builder.Services.AddScoped<CommentService>();
 
 
 
