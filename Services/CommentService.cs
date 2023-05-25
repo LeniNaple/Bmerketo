@@ -16,10 +16,45 @@ namespace Bmerketo.Services
         }
 
 
-        // 
+        public async Task<bool> RegisterCommentAsync(ContactFormViewModel viewModel)
+        {
+            try
+            {
+                ContactComment _contactComment = viewModel;
+                CommentUser _commentUser = viewModel;
+
+                _contactComment.CommentInfo = new CommentUser
+                {
+                    Email = _commentUser.Email,
+                    Alias = _commentUser.Alias,
+                    PhoneNumber = _commentUser.PhoneNumber,
+                    Company = _commentUser.Company,
+                };
+
+                _commentContext.Add(new ContactComment
+                {
+                    Comment = _contactComment.Comment,
+                    SaveEmail = _contactComment.SaveEmail,
+                    CommentId = _contactComment.CommentInfo.Id,
+                    CommentInfo = _contactComment.CommentInfo,
+                });
+
+                // Saves changes to user
+                await _commentContext.SaveChangesAsync();
+
+
+                return true;
+            }
+            catch
+            {
+                return false;
+
+            }
+        }
+
 
         // Save comment to db
-        public async Task<bool> RegisterCommentAsync(ContactFormViewModel viewModel)
+        public async Task<bool> RegisterCommentAsync2(ContactFormViewModel viewModel)
         {
             try
             {
@@ -63,13 +98,18 @@ namespace Bmerketo.Services
                 {
                     _contactComment.CommentInfo = new CommentUser
                     {
-
                         //Need to add filter funtction so it doesnt add ontop all the time 
                         Email = "Unknown",
                         Alias = "Unknown",
                         PhoneNumber = "Unknown",
                         Company = "Unknown",
                     };
+                    var _commentInfo = await _commentContext.CommentInfos.FirstOrDefaultAsync(x => x.Email == viewModel.Email && x.Alias == viewModel.Name);
+                    if (_commentInfo != null)
+                    {
+                        _contactComment.CommentId = _commentInfo.Id;
+                        _contactComment.CommentInfo = _commentInfo;
+                    }
                 }
 
                 //Creates new comment
