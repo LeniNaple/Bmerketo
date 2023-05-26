@@ -1,5 +1,8 @@
 ﻿@*Showcase Partial - on home*@
 
+@model ProductsViewModel
+
+
 <section class="showcase">
     <div class="container">
         <div class="content">
@@ -8,7 +11,7 @@
             <button class="btn-theme">SHOP NOW</button>
         </div>
         <div class="content-image">
-            <img src="images/placeholders/625x647.svg" alt="">
+            <img src="@Model.Products.Where(x => x.ProductTag == "Featured").First().ImgUrl" alt="@Model.Products.Where(x => x.ProductTag == "Featured").First().Name">
         </div>
     </div>
 </section>
