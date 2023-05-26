@@ -1,0 +1,50 @@
+﻿@*Admin page nr 2. Adding products*@
+
+@model AddProductsViewModel
+
+@{
+    ViewData["Title"] = "Admin - Add products";
+
+}
+
+<partial name="/Views/Partials/_HeaderPartial.cshtml" />
+
+<div class="p-5">
+    <div class="pt-5">
+        <h2> <a class="link" asp-controller="Admin" asp-action="Index">Check Users</a> </h2>
+
+        <form id="products-form" method="post" novalidate>
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="name form-group">
+                <label asp-for="Name">Products Name*</label>
+                <input asp-for="Name" id="products-name" type="text" required>
+                <span asp-validation-for="Name" class="products-error"></span>
+            </div>
+
+            <div class="description form-group">
+                <label asp-for="Description">Products Description*</label>
+                <input asp-for="Description" id="products-description" type="text">
+                <span asp-validation-for="Description" class="products-error"></span>
+            </div>
+
+            <div class="price form-group">
+                <label asp-for="Price">Products Price*</label>
+                <input asp-for="Price" id="product-price" type="text">
+                <span asp-validation-for="Price" class="products-error"></span>
+            </div>
+          
+            <div class="imageUrl form-group">
+                <label asp-for="ImgUrl">Product Image (URL)*</label>
+                <input asp-for="ImgUrl" id="product-image" type="text">
+                <span asp-validation-for="ImgUrl" class="product-error"></span>
+            </div>
+
+            <div class="imageUrl form-group">
+                <label asp-for="ProductTag">Add tag, if you want.</label>
+                <input asp-for="ProductTag" id="product-tag" type="text">
+            </div>
+
+            <button id="productFormButton" class="mt-1 btn-theme">Create</button>
+        </form>
+    </div>
+</div>

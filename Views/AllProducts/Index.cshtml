@@ -3,10 +3,31 @@
 @{
     ViewData["Title"] = "All Products";
 }
+@model ProductsViewModel
+
 
 <partial name="/Views/Partials/_HeaderPartial.cshtml" />
 
 
 <div class="pt-5">
-    <h1>A grid with all products. </h1>
+    <div class="p-5">
+        <div class="collection-grid">
+           
+            @foreach (var product in Model.Products)
+            {
+                <a href="#" class="collection-item">
+                    <img src="@product.ImgUrl" alt="@product.Name">
+                    <div class="body">
+                        <div class="title">@product.Name</div>
+                        <div class="info">
+                            <div class="price">$ @product.Price</div>
+                            <i class="add-cart fa-regular fa-cart-plus"></i>
+                        </div>
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
 </div>
+
+

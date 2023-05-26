@@ -1,7 +1,6 @@
 ﻿using Bmerketo.Models.Entities;
 using Bmerketo.Models.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace Bmerketo.Contexts
 {

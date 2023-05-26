@@ -11,8 +11,12 @@
 
 <partial name="/Views/Partials/_HeaderPartial.cshtml" />
 
+
+
 <div class="p-5">
     <div class="pt-5">
+        <h2> <a class="link" asp-controller="AddProducts" asp-action="Index">Add Products</a> </h2>
+
             <h1>LIST OF USERS </h1>
             @foreach(var user in Model.Users)
             {

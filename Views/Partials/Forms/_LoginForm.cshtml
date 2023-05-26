@@ -7,6 +7,7 @@
         <div class="title">Please Login to Your Account</div>
         <div class="underline"></div>
         <form method="post" novalidate asp-route-ReturnUrl="@Model.ReturnUrl">
+            <div asp-validation-summary="ModelOnly"></div>
             <div class="email form-group">
                 <div class="email-text">
                     <label asp-for="Email">Your Email*</label>

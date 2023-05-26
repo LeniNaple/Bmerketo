@@ -11,6 +11,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<IdentityContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("BmerketoUserDb")));
 builder.Services.AddDbContext<CommentContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("BmerketoCommentDb")));
+builder.Services.AddDbContext<ProductContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("BmerketoProductDb")));
 
 builder.Services.AddScoped<SeedService>();
 builder.Services.AddScoped<AuthenticationService>();
@@ -19,6 +20,8 @@ builder.Services.AddScoped<AddressRepository>();
 builder.Services.AddScoped<UserAddressRepository>();
 builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<CommentService>();
+builder.Services.AddScoped<ProductService>();
+
 
 
 
