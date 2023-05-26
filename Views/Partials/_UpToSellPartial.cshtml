@@ -7,7 +7,7 @@
         <div class="collection-grid">
             <div class="item-1">
                 <!-- collection-item start -->
-                <a href="#" class="collection-item">
+                <a href="@Url.Action("Index", "SingleProduct", new {id = Model.Products.Where(x => x.ProductTag == "Flash").First().Id})" class="collection-item">
                     <img style="height:310px; width:370px;"  src="@Model.Products.Where(x => x.ProductTag == "Flash").First().ImgUrl" alt="@Model.Products.Where(x => x.ProductTag == "Flash").First().Name">
                     <div class="body">
                         <div class="title">@Model.Products.Where(x => x.ProductTag == "Flash").First().Name</div>
@@ -34,7 +34,7 @@
             </div>
             <div class="item-2">
                 <!-- collection-item start -->
-                <a href="#" class="collection-item">
+                <a href="@Url.Action("Index", "SingleProduct", new {id = Model.Products.Where(x => x.ProductTag == "Flash").Last().Id})" class="collection-item">
                     <img style="height:310px; width:370px;" src="@Model.Products.Where(x => x.ProductTag == "Flash").Last().ImgUrl" alt="@Model.Products.Where(x => x.ProductTag == "Flash").Last().Name">
                     <div class="body">
                         <div class="title">@Model.Products.Where(x => x.ProductTag == "Flash").Last().Name</div>

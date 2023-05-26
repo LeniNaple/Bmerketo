@@ -25,7 +25,7 @@
                     }
                     else
                     {
-                        <a href="#" class="collection-item">
+                        <a href="@Url.Action("Index", "SingleProduct", new {id = product.Id})" class="collection-item">
                             <img style="height:295px;" src="@product.ImgUrl" alt="@product.Name">
                             <div class="body">
                                 <div class="title">@product.Name</div>
@@ -64,8 +64,8 @@
                     }
                     else
                     {
-                        <a href="#" class="collection-item">
-                            <img src="@product.ImgUrl" alt="@product.Name">
+                        <a href="@Url.Action("Index", "SingleProduct", new {id = product.Id})" class="collection-item">
+                            <img style="height:310px; width:370px;" src="@product.ImgUrl" alt="@product.Name">
                             <div class="body">
                                 <div class="title">@product.Name</div>
                                 <div class="info">

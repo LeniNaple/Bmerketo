@@ -37,7 +37,8 @@
                     }
                     else
                     {
-                        <a href="#" class="collection-item">
+     //<a href="@Url.Action("Product", "YourControllerName", new { id = product.Id })">@product.Name</a>
+                        <a href="@Url.Action("Index", "SingleProduct", new {id = product.Id})" class="collection-item">
                             <img style="height:295px;" src="@product.ImgUrl" alt="@product.Name">
                             <div class="body">
                                 <div class="title">@product.Name</div>

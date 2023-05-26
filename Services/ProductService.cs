@@ -82,5 +82,31 @@ public class ProductService
         return await _productContext.Set<ProductEntity>().Where(expression).ToListAsync();
     }
 
+    //Get single product by ID, should work in SingleProductController but doesnt return a proper ProductEntity...
+    public async Task<ProductEntity> GetSingleProduct(Expression<Func<ProductEntity, bool>> expression)
+    {
+        var entity = await _productContext.Set<ProductEntity>().FirstOrDefaultAsync(expression);
+        if (entity != null)
+        {
+            return entity;
+        }
+        return null!;
+    }
+
+
+
+    //Gets product from database, by id that it gets from the controller (Which the controller gets from the link on the product)
+    //Is not async / await, but seems to work anyhow... 
+    public ProductEntity GetProductById(Guid id)
+    {
+        var product = _productContext.Products.FirstOrDefault(x => x.Id == id);
+        if (product != null)
+        {
+            return product;
+        }
+        else
+            return null!;
+    }
+
 
 }
