@@ -28,7 +28,8 @@
                     <div class="streetName-text">
                         <label asp-for="StreetName">Street Name</label>
                     </div>
-                    <input asp-for="StreetName" id="streetName" type="text">
+                    <span asp-validation-for="StreetName" class="signup-error"></span>
+                    <input asp-for="StreetName" id="signup-streetName" type="text">
                 </div>
                 <div class="postalCode form-group">
                     <div class="postalCode-text">

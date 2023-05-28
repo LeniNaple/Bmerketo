@@ -21,90 +21,84 @@
 
 
 
-///* VALIDATION FOR CONTACT FORM*/
+///* VALIDATION CONTACT-FORM*/
 
-//const contactForm = document.getElementById('contact-form');
-//const contactName = document.getElementById('contact-name');
-//const contactEmail = document.getElementById('contact-email');
-//const contactMessage = document.getElementById('contact-message');
-
-//contactForm.addEventListener('submit', e => {
-//    e.preventDefault();
-//    validateContactInputs();
-
-//});
-
-//const setContactError = (element, message) => {
-//    const inputControl = element.parentElement;
-//    const errorDisplay = inputControl.querySelector('.contact-error');
-//    const list = element.classList;
+const contactForm = document.getElementById('contact-form');
+const contactName = document.getElementById('contact-name');
+const contactEmail = document.getElementById('contact-email');
+const contactMessage = document.getElementById('contact-message');
 
 
-//    errorDisplay.innerText = message;
-//    inputControl.classList.add('contact-error');
-//    list.add("invalid");
-//    inputControl.classList.remove('success')
-//}
+var validated = false;
 
-//const setContactSuccess = element => {
-//    const inputControl = element.parentElement;
-//    const errorDisplay = inputControl.querySelector('.contact-error');
-//    const list = element.classList;
+contactForm.addEventListener("submit", (e) => {
+    if (validated == false) {
+        e.preventDefault();
+        validateContactInputs();
+    } else {
+        contactForm.submit();
+    }
+})
 
-//    errorDisplay.innerText = '';
-//    inputControl.classList.add('success');
-//    inputControl.classList.remove('contact-error');
-//    list.remove("invalid");
-//};
-
-//const isValidContactEmail = contactEmail => {
-//    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-//    return re.test(String(contactEmail).toLowerCase());
-//}
-
-//const validateContactInputs = () => {
-//    const contactNameValue = contactName.value.trim();
-//    const contactEmailValue = contactEmail.value.trim();
-//    const contactMessageValue = contactMessage.value.trim();
+const setCommentError = (element, message) => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.contact-error');
+    const list = element.classList;
 
 
-//    if (contactNameValue === '') {
-//        setContactError(contactName, 'Username is required');
-//    } else {
-//        setContactSuccess(contactName);
-//    }
+    errorDisplay.innerText = message;
+    inputControl.classList.add('contact-error');
+    list.add("invalid");
+    inputControl.classList.remove('success')
+}
 
-//    if (contactEmailValue === '') {
-//        setContactError(contactEmail, 'Email is required');
-//    } else if (!isValidContactEmail(contactEmailValue)) {
-//        setContactError(contactEmail, 'Provide a valid email address');
-//    } else {
-//        setContactSuccess(contactEmail);
-//    }
+const setCommentSuccess = element => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.contact-error');
+    const list = element.classList;
 
-//    if (contactMessageValue === '') {
-//        setContactError(contactMessage, 'Message is required');
-//    } else if (contactMessageValue.length < 20) {
-//        setContactError(contactMessage, 'Message must be at least 20 characters long.');
-//    } else {
-//        setContactSuccess(contactMessage);
-//    }
+    errorDisplay.innerText = '';
+    inputControl.classList.add('success');
+    inputControl.classList.remove('contact-error');
+    list.remove("invalid");
+};
 
-//    if (document.querySelectorAll('.success').length === 3) {
-//        // submit the form
-//        contactForm.submit();
-//    }
-//};
+const validateContactInputs = () => {
+
+    if (contactName.value === '') {
+        setCommentError(contactName, 'A name is required');
+        validated = false;
+    } else {
+        setCommentSuccess(contactName);
+        validated = true;
+    }
+
+    if (contactEmail.value === '') {
+        setCommentError(contactEmail, 'An Email is required');
+        validated = false;
+    } else {
+        setCommentSuccess(contactEmail);
+        validated = true;
+    }
+
+    if (contactMessage.value === '') {
+        setCommentError(contactMessage, 'A message is required');
+        validated = false;
+    } else if (contactMessage.value.length < 8) {
+        setCommentError(contactMessage, 'Message must be at least 8 characters long.');
+        validated = false;
+    } else {
+        setCommentSuccess(contactMessage);
+        validated = true;
+    }
+};
 
 
 
 
 
 
-
-
-/* VALIDATION FOR SIGNUP  FORM*/
-
+/* VALIDATION SIGNUP-FORM*/
 
 const signupForm = document.getElementById('signup-form');
 const signupFirstName = document.getElementById('signup-firstName');
@@ -112,6 +106,7 @@ const signupLastName = document.getElementById('signup-lastName');
 const signupEmail = document.getElementById('signup-email');
 const signupPassword = document.getElementById('signup-password');
 const signupConfirmPassword = document.getElementById('signup-confirmPassword');
+const signupStreetName = document.getElementById('signup-streetName');
 
 
 window.onload = function () {
@@ -156,6 +151,7 @@ const validateSignupInputs = () => {
     const signupEmailValue = signupEmail.value.trim();
     const signupPasswordValue = signupPassword.value.trim();
     const signupConfirmPasswordValue = signupConfirmPassword.value.trim();
+    const signupStreetNameValue = signupStreetName.value.trim();
 
 
     if (signupFirstNameValue === '') {
@@ -187,7 +183,6 @@ const validateSignupInputs = () => {
     }
 
 
-
     if (signupConfirmPasswordValue === '') {
         setSignupError(signupConfirmPassword, 'Please confirm your password');
     } else if (signupConfirmPasswordValue !== signupPasswordValue) {
@@ -196,8 +191,14 @@ const validateSignupInputs = () => {
         setSignupSuccess(signupConfirmPassword);
     }
 
+    if (signupStreetNameValue === '') {
+        setSignupError(signupStreetName, 'A Street name is required');
+    } else {
+        setSignupSuccess(signupStreetName);
+    }
 
-    if (document.querySelectorAll('.success').length === 5) {
+
+    if (document.querySelectorAll('.success').length === 6) {
         signupForm.submit();
     }
 };
