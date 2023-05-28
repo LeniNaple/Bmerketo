@@ -17,6 +17,7 @@
         @foreach (var user in Model.Users)
         {
             <div>
+                <img src="@user.ImageUrl" alt="@user.FirstName">
                 @user.FirstName 
                 @user.LastName
             </div>
