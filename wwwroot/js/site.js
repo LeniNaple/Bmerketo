@@ -198,7 +198,6 @@ const validateSignupInputs = () => {
 
 
     if (document.querySelectorAll('.success').length === 5) {
-        // submit the form
         signupForm.submit();
     }
 };
