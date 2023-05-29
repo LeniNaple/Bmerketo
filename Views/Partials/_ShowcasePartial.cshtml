@@ -11,7 +11,16 @@
             <button class="btn-theme">SHOP NOW</button>
         </div>
         <div class="content-image">
-            <img src="@Model.Products.Where(x => x.ProductTag == "Featured").First().ImgUrl" alt="@Model.Products.Where(x => x.ProductTag == "Featured").First().Name">
+            @{
+                if (Model.Products.Where(x => x.ProductTag == "Featured").Any())
+                {
+                    <img src="@Model.Products.Where(x => x.ProductTag == "Featured").First().ImgUrl" alt="@Model.Products.Where(x => x.ProductTag == "Featured").First().Name">
+
+                } else
+                {
+                    <img src="~/Images/placeholders/625x647.svg" alt="Main Picture">
+                }
+             }
         </div>
     </div>
 </section>

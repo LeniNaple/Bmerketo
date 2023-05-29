@@ -24,37 +24,133 @@
                 var counter = 0;
             }
 
-            @*Loops out a number of products from list*@
-            @foreach(var product in Model.Products)
+            @if (Model.Products.Any())
             {
-                @*Filters products to tag "best"*@
-                if (product.ProductTag == "Best")
+
+
+                @*Loops out a number of products from list*@
+                @foreach (var product in Model.Products)
                 {
-                    counter++;
-                    if (counter == 9)
+                    @*Filters products to tag "best"*@
+                    if (product.ProductTag == "Best")
                     {
-                        break;
-                    }
-                    else
-                    {
-     //<a href="@Url.Action("Product", "YourControllerName", new { id = product.Id })">@product.Name</a>
-                        <a href="@Url.Action("Index", "SingleProduct", new {id = product.Id})" class="collection-item">
-                            <img style="height:295px;" src="@product.ImgUrl" alt="@product.Name">
-                            <div class="body">
-                                <div class="title">@product.Name</div>
-                                <div class="info">
-                                    <div class="price">$@product.Price</div>
-                                    <i class="add-cart fa-regular fa-cart-plus"></i>
+                        counter++;
+                        if (counter == 9)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            //<a href="@Url.Action("Product", "YourControllerName", new { id = product.Id })">@product.Name</a>
+                            <a href="@Url.Action("Index", "SingleProduct", new {id = product.Id})" class="collection-item">
+                                <img style="height:295px;" src="@product.ImgUrl" alt="@product.Name">
+                                <div class="body">
+                                    <div class="title">@product.Name</div>
+                                    <div class="info">
+                                        <div class="price">$@product.Price</div>
+                                        <i class="add-cart fa-regular fa-cart-plus"></i>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        }
                     }
                 }
+            } else
+            {
+                <a href="#" class="collection-item">
+                    <img style="height:295px;" src="~/Images/placeholders/370x295.svg" alt="Product Name">
+                    <div class="body">
+                        <div class="title">Product Name</div>
+                        <div class="info">
+                            <div class="price">Product Price</div>
+                            <i class="add-cart fa-regular fa-cart-plus"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="collection-item">
+                    <img style="height:295px;" src="~/Images/placeholders/370x295.svg" alt="Product Name">
+                    <div class="body">
+                        <div class="title">Product Name</div>
+                        <div class="info">
+                            <div class="price">Product Price</div>
+                            <i class="add-cart fa-regular fa-cart-plus"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="collection-item">
+                    <img style="height:295px;" src="~/Images/placeholders/370x295.svg" alt="Product Name">
+                    <div class="body">
+                        <div class="title">Product Name</div>
+                        <div class="info">
+                            <div class="price">Product Price</div>
+                            <i class="add-cart fa-regular fa-cart-plus"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="collection-item">
+                    <img style="height:295px;" src="~/Images/placeholders/370x295.svg" alt="Product Name">
+                    <div class="body">
+                        <div class="title">Product Name</div>
+                        <div class="info">
+                            <div class="price">Product Price</div>
+                            <i class="add-cart fa-regular fa-cart-plus"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="collection-item">
+                    <img style="height:295px;" src="~/Images/placeholders/370x295.svg" alt="Product Name">
+                    <div class="body">
+                        <div class="title">Product Name</div>
+                        <div class="info">
+                            <div class="price">Product Price</div>
+                            <i class="add-cart fa-regular fa-cart-plus"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="collection-item">
+                    <img style="height:295px;" src="~/Images/placeholders/370x295.svg" alt="Product Name">
+                    <div class="body">
+                        <div class="title">Product Name</div>
+                        <div class="info">
+                            <div class="price">Product Price</div>
+                            <i class="add-cart fa-regular fa-cart-plus"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="collection-item">
+                    <img style="height:295px;" src="~/Images/placeholders/370x295.svg" alt="Product Name">
+                    <div class="body">
+                        <div class="title">Product Name</div>
+                        <div class="info">
+                            <div class="price">Product Price</div>
+                            <i class="add-cart fa-regular fa-cart-plus"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="collection-item">
+                    <img style="height:295px;" src="~/Images/placeholders/370x295.svg" alt="Product Name">
+                    <div class="body">
+                        <div class="title">Product Name</div>
+                        <div class="info">
+                            <div class="price">Product Price</div>
+                            <i class="add-cart fa-regular fa-cart-plus"></i>
+                        </div>
+                    </div>
+                </a>
             }
 
         </div>
+
         <div class="load-more">
             <button class="btn-outline-white">LOAD MORE <i class="fa-solid fa-rotate-right"></i></button>
         </div>
+
     </div>
 </section>

@@ -6,18 +6,36 @@
     <div class="container">
         <div class="collection-grid">
             <div class="item-1">
-                <!-- collection-item start -->
-                <a href="@Url.Action("Index", "SingleProduct", new {id = Model.Products.Where(x => x.ProductTag == "Flash").First().Id})" class="collection-item">
-                    <img style="height:310px; width:370px;"  src="@Model.Products.Where(x => x.ProductTag == "Flash").First().ImgUrl" alt="@Model.Products.Where(x => x.ProductTag == "Flash").First().Name">
-                    <div class="body">
-                        <div class="title">@Model.Products.Where(x => x.ProductTag == "Flash").First().Name</div>
-                        <div class="info">
-                            <div class="price">$@Model.Products.Where(x => x.ProductTag == "Flash").First().Price</div>
-                            <i class="add-cart fa-regular fa-cart-plus"></i>
-                        </div>
-                    </div>
-                </a>
-                <!-- collection-item end -->
+
+                @{
+                    if (Model.Products.Where(x => x.ProductTag == "Flash").Any())
+                    {
+                        <a href="@Url.Action("Index", "SingleProduct", new {id = Model.Products.Where(x => x.ProductTag == "Flash").First().Id})" class="collection-item">
+                            <img style="height:310px; width:370px;" src="@Model.Products.Where(x => x.ProductTag == "Flash").First().ImgUrl" alt="@Model.Products.Where(x => x.ProductTag == "Flash").First().Name">
+                            <div class="body">
+                                <div class="title">@Model.Products.Where(x => x.ProductTag == "Flash").First().Name</div>
+                                <div class="info">
+                                    <div class="price">$@Model.Products.Where(x => x.ProductTag == "Flash").First().Price</div>
+                                    <i class="add-cart fa-regular fa-cart-plus"></i>
+                                </div>
+                            </div>
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="#" class="collection-item">
+                            <img src="~/Images/placeholders/369x310.svg" alt="Placeholder product">
+                            <div class="body">
+                                <div class="title">Placeholder product</div>
+                                <div class="info">
+                                    <div class="price">Placeholder product Price</div>
+                                    <i class="add-cart fa-regular fa-cart-plus"></i>
+                                </div>
+                            </div>
+                        </a>
+                    }
+                }
+
             </div>
             <div class="discover">
                 <!-- collection-content start -->
@@ -33,18 +51,36 @@
                 <!-- collection-content end -->
             </div>
             <div class="item-2">
-                <!-- collection-item start -->
-                <a href="@Url.Action("Index", "SingleProduct", new {id = Model.Products.Where(x => x.ProductTag == "Flash").Last().Id})" class="collection-item">
-                    <img style="height:310px; width:370px;" src="@Model.Products.Where(x => x.ProductTag == "Flash").Last().ImgUrl" alt="@Model.Products.Where(x => x.ProductTag == "Flash").Last().Name">
-                    <div class="body">
-                        <div class="title">@Model.Products.Where(x => x.ProductTag == "Flash").Last().Name</div>
-                        <div class="info">
-                            <div class="price">$@Model.Products.Where(x => x.ProductTag == "Flash").Last().Price</div>
-                            <i class="add-cart fa-regular fa-cart-plus"></i>
-                        </div>
-                    </div>
-                </a>
-                <!-- collection-item end -->
+
+                @{
+                    if (Model.Products.Where(x => x.ProductTag == "Flash").Any())
+                    {
+                        <a href="@Url.Action("Index", "SingleProduct", new {id = Model.Products.Where(x => x.ProductTag == "Flash").Last().Id})" class="collection-item">
+                            <img style="height:310px; width:370px;" src="@Model.Products.Where(x => x.ProductTag == "Flash").Last().ImgUrl" alt="@Model.Products.Where(x => x.ProductTag == "Flash").Last().Name">
+                            <div class="body">
+                                <div class="title">@Model.Products.Where(x => x.ProductTag == "Flash").Last().Name</div>
+                                <div class="info">
+                                    <div class="price">$@Model.Products.Where(x => x.ProductTag == "Flash").Last().Price</div>
+                                    <i class="add-cart fa-regular fa-cart-plus"></i>
+                                </div>
+                            </div>
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="#" class="collection-item">
+                            <img src="~/Images/placeholders/369x310.svg" alt="Placeholder product">
+                            <div class="body">
+                                <div class="title">Placeholder product</div>
+                                <div class="info">
+                                    <div class="price">Placeholder product Price</div>
+                                    <i class="add-cart fa-regular fa-cart-plus"></i>
+                                </div>
+                            </div>
+                        </a>
+                    }
+                }
+
             </div>
         </div>
     </div>
